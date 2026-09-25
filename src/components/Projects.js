@@ -499,7 +499,7 @@ const Projects = () => {
           />
 
           {/* Main Banner Container */}
-          <div className="relative bg-gradient-to-br from-slate-900/95 via-teal-900/90 to-emerald-900/95 rounded-3xl p-8 md:p-16 text-center shadow-2xl border border-white/10 backdrop-blur-xl overflow-hidden">
+          <div className="relative bg-gradient-to-br from-slate-900/95 via-teal-900/90 to-emerald-900/95 rounded-3xl p-6 sm:p-8 md:p-16 text-center shadow-2xl border border-white/10 backdrop-blur-xl overflow-hidden">
             {/* Decorative Particles */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               {[...Array(20)].map((_, i) => (
@@ -595,7 +595,7 @@ const Projects = () => {
 
               {/* Main Heading */}
               <motion.h2
-                className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 tracking-tight"
+                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -608,7 +608,7 @@ const Projects = () => {
 
               {/* Subheading */}
               <motion.p
-                className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8"
+                className="text-white/80 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -621,7 +621,7 @@ const Projects = () => {
 
               {/* Stats Row */}
               <motion.div
-                className="flex flex-wrap justify-center gap-6 md:gap-12 mb-8"
+                className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-12 mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -642,7 +642,7 @@ const Projects = () => {
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
-                    className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/10"
+                    className="flex items-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-4 py-2 sm:px-5 sm:py-3 border border-white/10"
                     whileHover={{
                       scale: 1.05,
                       backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -650,13 +650,13 @@ const Projects = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <motion.span
-                      className="text-emerald-400 text-xl"
+                      className="text-emerald-400 text-lg sm:text-xl"
                       whileHover={{ rotate: 15, scale: 1.1 }}
                     >
                       {stat.icon}
                     </motion.span>
                     <div className="text-left">
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-xl sm:text-2xl font-bold text-white">
                         {stat.value}
                       </div>
                       <div className="text-xs text-white/60 uppercase tracking-wider">
@@ -719,16 +719,16 @@ const Projects = () => {
               />
               <input
                 type="text"
-                placeholder="Search projects by name, technology, or description..."
+                placeholder="Search projects..."
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="relative w-full pl-6 pr-14 py-4 rounded-full glass-3d text-ink placeholder-muted focus:outline-none focus:ring-4 focus:ring-emerald-500/30 transition-all duration-300 shadow-lg hover:shadow-emerald-500/30 border border-line/50 focus:border-brand/50"
+                className="relative w-full pl-4 sm:pl-6 pr-12 sm:pr-14 py-3 sm:py-4 rounded-full glass-3d text-ink placeholder-muted focus:outline-none focus:ring-4 focus:ring-emerald-500/30 transition-all duration-300 shadow-lg hover:shadow-emerald-500/30 border border-line/50 focus:border-brand/50 text-sm sm:text-base"
               />
               <motion.button
-                className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 flex items-center justify-center text-white shadow-emerald"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 flex items-center justify-center text-white shadow-emerald"
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label="Search"
@@ -740,9 +740,9 @@ const Projects = () => {
         </Reveal>
 
         {/* Enhanced Filters with new design */}
-        <Reveal className="mb-14">
+        <Reveal className="mb-12 sm:mb-14">
           <motion.div
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-2 sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -767,7 +767,7 @@ const Projects = () => {
                   transition={{ delay: index * 0.05, duration: 0.4 }}
                   whileHover={{ scale: 1.08, y: -4 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`relative flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 overflow-hidden ${
+                  className={`relative flex items-center gap-2 sm:gap-2.5 rounded-full px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold transition-all duration-300 overflow-hidden ${
                     active
                       ? "text-white shadow-2xl"
                       : "glass-3d text-muted hover:text-brand-300 hover:shadow-lg"
@@ -810,7 +810,7 @@ const Projects = () => {
         <motion.div
           id="projects-grid"
           layout
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-12"
+          className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12"
         >
           <AnimatePresence mode="popLayout">
             {currentProjects.map((project, index) => (
@@ -870,6 +870,7 @@ const Projects = () => {
                         src={project.image}
                         alt={project.title}
                         loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
                         onLoad={(e) => {
                           e.currentTarget.style.opacity = "1";
@@ -940,24 +941,24 @@ const Projects = () => {
                     </div>
 
                     {/* Enhanced Content */}
-                    <div className="p-6 relative z-10">
+                    <div className="p-4 sm:p-6 relative z-10">
                       <motion.h3
-                        className="mb-3 text-xl font-bold text-ink transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-teal-400 group-hover:bg-clip-text"
+                        className="mb-2 sm:mb-3 text-lg sm:text-xl font-bold text-ink transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-teal-400 group-hover:bg-clip-text"
                         whileHover={{ x: 5 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
                         {project.title}
                       </motion.h3>
-                      <p className="mb-4 text-sm leading-relaxed text-muted line-clamp-3">
+                      <p className="mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed text-muted line-clamp-3">
                         {project.description}
                       </p>
 
                       {/* Enhanced Tech Stack */}
-                      <div className="mb-5 flex flex-wrap gap-2">
+                      <div className="mb-4 sm:mb-5 flex flex-wrap gap-1.5 sm:gap-2">
                         {project.technologies.slice(0, 4).map((t, i) => (
                           <motion.span
                             key={t}
-                            className="rounded-lg bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-400/30 px-3 py-1 text-xs font-medium text-emerald-300 shadow-sm"
+                            className="rounded-lg bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-400/30 px-2 py-0.5 sm:px-3 sm:py-1 text-xs font-medium text-emerald-300 shadow-sm"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: i * 0.05, duration: 0.3 }}
@@ -981,7 +982,7 @@ const Projects = () => {
                       </div>
 
                       {/* Enhanced Action Buttons */}
-                      <div className="flex gap-3">
+                      <div className="flex gap-2 sm:gap-3">
                         <motion.a
                           href={
                             project.githubRepo.startsWith("http")
@@ -990,28 +991,28 @@ const Projects = () => {
                           }
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-700 py-3 text-sm font-bold text-white shadow-lg border border-white/10"
+                          className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-700 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-lg border border-white/10"
                           whileHover={{
                             scale: 1.05,
                             boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)",
                           }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <FaGithub className="text-base" /> GitHub
+                          <FaGithub className="text-sm sm:text-base" /> GitHub
                         </motion.a>
                         {(project.demo || project.demoLive) && (
                           <motion.a
                             href={project.demo}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-600 py-3 text-sm font-bold text-white shadow-lg border border-white/10"
+                            className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-600 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-lg border border-white/10"
                             whileHover={{
                               scale: 1.05,
                               boxShadow: "0 20px 40px rgba(20, 184, 166, 0.4)",
                             }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            <FaExternalLinkAlt className="text-sm" /> Live Demo
+                            <FaExternalLinkAlt className="text-xs sm:text-sm" /> Live Demo
                           </motion.a>
                         )}
                       </div>

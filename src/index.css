@@ -70,11 +70,11 @@
 @layer components {
 
   .container-custom {
-    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-10;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10;
   }
 
   .section-padding {
-    @apply py-24 sm:py-28 lg:py-32;
+    @apply py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32;
   }
 
   /* ---------- GLASS ---------- */
@@ -100,7 +100,7 @@
   /* ---------- BUTTONS ---------- */
   .btn-primary {
     @apply relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-xl
-           px-8 py-4 font-semibold text-white tracking-wide
+           px-6 py-3 sm:px-8 sm:py-4 font-semibold text-white tracking-wide
            transition-all duration-300 active:scale-95;
     background: linear-gradient(135deg, #10b981, #06b6d4);
     box-shadow: 0 0 20px rgba(16,185,129,0.4), 0 4px 20px rgba(0,0,0,0.3);
@@ -114,7 +114,7 @@
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-xl border px-8 py-4
+    @apply inline-flex items-center justify-center gap-2.5 rounded-xl border px-6 py-3 sm:px-8 sm:py-4
            font-semibold tracking-wide transition-all duration-300
            hover:-translate-y-1 active:scale-95;
     border-color: rgba(var(--c-border));
@@ -170,7 +170,7 @@
 
   /* ---------- INPUT ---------- */
   .input-field {
-    @apply w-full rounded-xl px-5 py-4 text-sm transition-all duration-300;
+    @apply w-full rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-sm transition-all duration-300;
     background: rgba(var(--c-card) / 0.6);
     border: 1px solid rgba(var(--c-border));
     color: rgb(var(--c-text));
@@ -341,11 +341,7 @@
     -webkit-line-clamp: 3;
   }
 
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
-  }
+
 
   .has-custom-cursor,
   .has-custom-cursor * { cursor: none !important; }
@@ -531,6 +527,39 @@
   -webkit-backface-visibility: hidden;
 }
 
+/* Horizontal overflow prevention */
+* {
+  max-width: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent text overflow */
+p, h1, h2, h3, h4, h5, h6, span, div {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Fix scroll containers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Reduce particle effects on mobile for performance */
 @media (max-width: 768px) {
   .particle,
@@ -560,9 +589,20 @@
 
 /* Better mobile typography */
 @media (max-width: 640px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
+  h1 { font-size: 2rem; line-height: 1.2; }
+  h2 { font-size: 1.75rem; line-height: 1.3; }
+  h3 { font-size: 1.25rem; line-height: 1.4; }
+  h4 { font-size: 1.1rem; line-height: 1.4; }
+  
+  /* Better line height for mobile reading */
+  body {
+    line-height: 1.6;
+  }
+  
+  /* Prevent text from being too small */
+  html {
+    font-size: 16px;
+  }
 }
 
 /* Touch-friendly interactive elements */
@@ -577,24 +617,149 @@
   .cursor-grow {
     display: none;
   }
+  
+  /* Ensure minimum touch target size of 44x44px */
+  button, a, input, textarea, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better spacing for touch */
+  .btn-primary, .btn-ghost {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
 }
 
 /* Optimized glass effect for mobile */
 @media (max-width: 768px) {
   .glass {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 }
 
 /* Performance: Reduce blur radius on mobile */
 @media (max-width: 640px) {
   .blur-3xl {
-    filter: blur(2rem);
+    filter: blur(0.5rem);
+  }
+
+  .blur-2xl {
+    filter: blur(0.4rem);
+  }
+
+  .blur-xl {
+    filter: blur(0.3rem);
+  }
+
+  .blur-lg {
+    filter: blur(0.2rem);
+  }
+
+  /* Disable heavy animations on mobile for performance */
+  .animate-aurora,
+  .animate-float,
+  .animate-float-slow {
+    animation-duration: 30s !important;
+  }
+
+  /* Reduce particle effects */
+  .particle {
+    opacity: 0.3;
+  }
+
+  /* Disable complex backdrop filters on mobile */
+  .backdrop-blur-xl {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .backdrop-blur-2xl {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+/* Mobile-specific layout fixes */
+@media (max-width: 480px) {
+  /* Better spacing for small screens */
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
   
-  .blur-2xl {
-    filter: blur(1.5rem);
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Fix grid layouts for mobile */
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Better button sizing */
+  .btn-primary, .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Stack flex containers */
+  .flex-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Mobile bottom navigation padding */
+@media (max-width: 1024px) {
+  main {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  main {
+    padding-bottom: 70px;
+  }
+}
+
+/* Medium mobile improvements */
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Better spacing for medium screens */
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Safe area support for modern phones */
+@supports (padding: max(0px)) {
+  .safe-area-bottom {
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  
+  .safe-area-top {
+    padding-top: max(16px, env(safe-area-inset-top));
+  }
+}
+
+/* Tablet improvements */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  /* Optimize animations for tablets */
+  .animate-aurora {
+    animation-duration: 20s !important;
   }
 }
 
@@ -603,5 +768,18 @@
   html {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  /* Ensure all containers respect viewport width */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }

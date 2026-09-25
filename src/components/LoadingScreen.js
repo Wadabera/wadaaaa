@@ -4,15 +4,17 @@ import { AnimatePresence, motion } from "framer-motion";
 /**
  * LoadingScreen — branded intro overlay. Shows an animated WA monogram and an
  * emerald progress bar, then fades out shortly after mount (or window load).
- * Disables body scroll while visible.
+ * Disables body scroll while visible. Optimized for mobile with faster load time.
  */
 const LoadingScreen = () => {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    const minTimer = setTimeout(() => setDone(true), 1600);
-    const onLoad = () => setTimeout(() => setDone(true), 400);
+    // Faster load time for mobile
+    const isMobile = window.innerWidth < 768;
+    const minTimer = setTimeout(() => setDone(true), isMobile ? 800 : 1600);
+    const onLoad = () => setTimeout(() => setDone(true), isMobile ? 200 : 400);
     window.addEventListener("load", onLoad);
     return () => {
       clearTimeout(minTimer);
@@ -37,15 +39,15 @@ const LoadingScreen = () => {
             initial={{ scale: 0.6, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative mb-8"
+            className="relative mb-6 sm:mb-8"
           >
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-brand/40 bg-brand/10 text-2xl font-extrabold text-brand-300 shadow-emerald">
+            <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl border border-brand/40 bg-brand/10 text-xl sm:text-2xl font-extrabold text-brand-300 shadow-emerald">
               WA
             </div>
             <div className="absolute -inset-2 -z-10 rounded-3xl bg-brand/20 blur-xl animate-glow" />
           </motion.div>
 
-          <div className="h-1 w-44 overflow-hidden rounded-full bg-card">
+          <div className="h-1 w-32 sm:w-44 overflow-hidden rounded-full bg-card">
             <motion.div
               className="h-full rounded-full bg-gradient-to-r from-brand-400 to-brand-600"
               initial={{ width: "0%" }}
@@ -53,7 +55,7 @@ const LoadingScreen = () => {
               transition={{ duration: 1.4, ease: "easeInOut" }}
             />
           </div>
-          <p className="mt-4 text-sm tracking-widest text-muted">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-sm tracking-widest text-muted">
             LOADING PORTFOLIO
           </p>
         </motion.div>

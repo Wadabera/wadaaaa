@@ -151,7 +151,7 @@ const Hero = () => {
     <section
       id="home"
       ref={heroRef}
-      className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
+      className="relative flex min-h-screen items-center overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-16"
       style={{ opacity, scale, y }}
     >
       {/* Enhanced Cinematic Background */}
@@ -171,10 +171,10 @@ const Hero = () => {
         />
         
         {/* Enhanced Floating Particles with Mouse Interaction */}
-        {[...Array(30)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="particle absolute rounded-full bg-gradient-to-r from-brand to-emerald-400"
+            className="particle absolute rounded-full bg-gradient-to-r from-brand to-emerald-400 hidden sm:block"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -251,7 +251,7 @@ const Hero = () => {
       </div>
       
       <div className="container-custom relative z-10">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8 sm:gap-12">
           {/* Left - Enhanced Content */}
           <motion.div
             className="space-y-8 lg:col-span-7"
@@ -281,8 +281,8 @@ const Hero = () => {
             </motion.div>
 
             {/* Enhanced Hero Heading */}
-            <motion.h1 
-              className="text-5xl font-extrabold leading-[1.05] text-ink sm:text-6xl lg:text-7xl"
+            <motion.h1
+              className="text-4xl font-extrabold leading-[1.1] text-ink sm:text-5xl lg:text-7xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -307,8 +307,8 @@ const Hero = () => {
             </motion.h1>
 
             {/* Enhanced Typewriter Effect */}
-            <motion.div 
-              className="flex h-10 items-center text-xl font-semibold text-muted sm:text-2xl"
+            <motion.div
+              className="flex h-10 items-center text-lg font-semibold text-muted sm:text-xl lg:text-2xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
@@ -322,8 +322,8 @@ const Hero = () => {
             </motion.div>
 
             {/* Enhanced Description */}
-            <motion.p 
-              className="max-w-xl text-lg leading-relaxed text-muted text-balance"
+            <motion.p
+              className="max-w-xl text-base leading-relaxed text-muted text-balance sm:text-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
@@ -349,15 +349,15 @@ const Hero = () => {
             </motion.p>
 
             {/* Enhanced CTAs */}
-            <motion.div 
-              className="flex flex-wrap gap-4"
+            <motion.div
+              className="flex flex-wrap gap-3 sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
               <MagneticButton
                 onClick={() => scrollTo("projects")}
-                className="btn-primary group relative overflow-hidden"
+                className="btn-primary group relative overflow-hidden flex-1 sm:flex-none"
               >
                 <motion.span 
                   className="relative z-10 flex items-center gap-2"
@@ -379,9 +379,9 @@ const Hero = () => {
                 />
               </MagneticButton>
               
-              <MagneticButton 
-                onClick={downloadCV} 
-                className="btn-ghost glass-3d hover:shadow-emerald group"
+              <MagneticButton
+                onClick={downloadCV}
+                className="btn-ghost glass-3d hover:shadow-emerald group flex-1 sm:flex-none"
               >
                 <motion.div 
                   className="flex items-center gap-2"
@@ -394,7 +394,7 @@ const Hero = () => {
               
               <MagneticButton
                 onClick={() => scrollTo("contact")}
-                className="btn-ghost glass-3d hover:shadow-emerald group"
+                className="btn-ghost glass-3d hover:shadow-emerald group flex-1 sm:flex-none"
               >
                 <motion.div 
                   className="flex items-center gap-2"
@@ -407,8 +407,8 @@ const Hero = () => {
             </motion.div>
 
             {/* Enhanced Stats with Animated Counters */}
-            <motion.div 
-              className="flex flex-wrap gap-10 pt-4"
+            <motion.div
+              className="flex flex-wrap gap-6 sm:gap-10 pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
@@ -482,7 +482,7 @@ const Hero = () => {
 
           {/* Right — Enhanced Portrait */}
           <motion.div
-            className="flex justify-center lg:col-span-5 lg:justify-end"
+            className="flex justify-center lg:col-span-5 lg:justify-end order-first lg:order-last"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
@@ -492,7 +492,7 @@ const Hero = () => {
               onMouseMove={onPortraitMove}
               onMouseLeave={onPortraitLeave}
               style={{ rotateX: rx, rotateY: ry, transformPerspective: 1200 }}
-              className="relative h-72 w-72 sm:h-80 sm:w-80 lg:h-[28rem] lg:w-[28rem] perspective-container"
+              className="relative h-56 w-56 sm:h-72 sm:w-72 lg:h-[28rem] lg:w-[28rem] perspective-container"
             >
               {/* Enhanced Pulsing Outer Glow Ring */}
               <motion.div 
@@ -543,6 +543,8 @@ const Hero = () => {
                   alt="Wada Abera, Full-Stack Developer"
                   width={448}
                   height={448}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
                 {/* Enhanced shine effect overlay */}

@@ -119,11 +119,11 @@ const About = () => {
           subtitle="A passionate software engineer crafting digital experiences and exploring the future of technology."
         />
 
-        <div className="mb-16 grid items-center gap-12 lg:grid-cols-12">
+        <div className="mb-12 sm:mb-16 grid items-center gap-8 lg:gap-12 lg:grid-cols-12">
           {/* Enhanced Image */}
-          <Reveal className="lg:col-span-5" y={0}>
-            <motion.div 
-              className="relative mx-auto max-w-sm group"
+          <Reveal className="lg:col-span-5 order-first lg:order-last" y={0}>
+            <motion.div
+              className="relative mx-auto max-w-xs sm:max-w-sm group"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -140,6 +140,7 @@ const About = () => {
                   src={wadaImg}
                   alt="Wada Abera"
                   loading="lazy"
+                  decoding="async"
                   className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-transparent to-transparent" />
@@ -152,8 +153,8 @@ const About = () => {
               </div>
               
               {/* Enhanced badge */}
-              <motion.div 
-                className="glass absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 px-6 py-4 shadow-soft border border-brand/30"
+              <motion.div
+                className="glass absolute -bottom-4 sm:-bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 shadow-soft border border-brand/30"
                 whileHover={{ y: -5, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -240,10 +241,10 @@ const About = () => {
             </Reveal>
 
             {/* Enhanced Highlights */}
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {HIGHLIGHTS.map((item, i) => (
                 <Reveal key={item.title} delay={i * 0.08}>
-                  <TiltCard max={12} lift={8} className="glass group h-full p-6 border border-line/50 hover:border-brand/30 transition-all duration-300">
+                  <TiltCard max={12} lift={8} className="glass group h-full p-4 sm:p-6 border border-line/50 hover:border-brand/30 transition-all duration-300">
                     <motion.div 
                       className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand/20 to-emerald-500/20 text-lg text-brand-300 transition-all duration-300 group-hover:scale-110 group-hover:from-brand/30 group-hover:to-emerald-500/30"
                       whileHover={{ rotate: 360 }}
@@ -270,8 +271,8 @@ const About = () => {
 
         {/* Enhanced Stats band */}
         <Reveal>
-          <motion.div 
-            className="glass grid grid-cols-2 gap-8 p-10 sm:grid-cols-4 border border-brand/20"
+          <motion.div
+            className="glass grid grid-cols-2 gap-4 sm:gap-8 p-6 sm:p-10 sm:grid-cols-4 border border-brand/20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

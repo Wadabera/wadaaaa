@@ -68,25 +68,25 @@ const Navbar = () => {
           : "border-b border-transparent py-4"
       }`}
     >
-      <nav className="container-custom flex items-center justify-between">
+      <nav className="container-custom flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Enhanced Logo */}
         <motion.button
           onClick={() => goTo("home")}
-          className="group flex items-center gap-3"
+          className="group flex items-center gap-2 sm:gap-3"
           aria-label="Go to home"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <motion.span 
-            className="flex h-11 w-11 items-center justify-center rounded-xl border-2 border-brand/40 bg-gradient-to-br from-brand/20 to-emerald-500/20 text-sm font-extrabold text-brand-300 transition-all duration-300 group-hover:shadow-emerald group-hover:border-brand/60"
+          <motion.span
+            className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border-2 border-brand/40 bg-gradient-to-br from-brand/20 to-emerald-500/20 text-xs sm:text-sm font-extrabold text-brand-300 transition-all duration-300 group-hover:shadow-emerald group-hover:border-brand/60"
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.6 }}
           >
             WA
           </motion.span>
           <span className="hidden flex-col leading-none sm:flex">
-            <motion.span 
-              className="text-base font-bold text-ink group-hover:text-brand-300 transition-colors duration-300"
+            <motion.span
+              className="text-sm sm:text-base font-bold text-ink group-hover:text-brand-300 transition-colors duration-300"
               whileHover={{ x: 2 }}
             >
               Wada Abera
@@ -225,9 +225,9 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden lg:hidden"
           >
-            <div className="container-custom pb-6 pt-4">
-              <motion.ul 
-                className="glass flex flex-col gap-2 p-4 border border-brand/20"
+            <div className="container-custom pb-4 sm:pb-6 pt-3 sm:pt-4">
+              <motion.ul
+                className="glass flex flex-col gap-2 p-3 sm:p-4 border border-brand/20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1 }}
@@ -243,7 +243,7 @@ const Navbar = () => {
                       onClick={() => goTo(item.id)}
                       whileHover={{ x: 5 }}
                       whileTap={{ scale: 0.98 }}
-                      className={`w-full rounded-xl px-5 py-4 text-left font-medium transition-all duration-300 ${
+                      className={`w-full rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-left font-medium transition-all duration-300 ${
                         active === item.id
                           ? "bg-gradient-to-r from-brand/20 to-emerald-500/20 text-brand-300 border border-brand/30"
                           : "text-ink hover:bg-card/50 border border-transparent"

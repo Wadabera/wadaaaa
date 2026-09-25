@@ -9,6 +9,7 @@ import CustomCursor from "./components/CustomCursor";
 import AnimatedBackground from "./components/AnimatedBackground";
 import ScrollProgress from "./components/ScrollProgress";
 import BackToTop from "./components/BackToTop";
+import MobileBottomNav from "./components/MobileBottomNav";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -58,6 +59,7 @@ function App() {
         </div>
 
         <BackToTop />
+        <MobileBottomNav />
         <ToastContainer toasts={toasts} removeToast={removeToast} />
       </AccessibilityProvider>
     </ThemeProvider>

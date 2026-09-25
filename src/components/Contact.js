@@ -150,11 +150,11 @@ const Contact = ({ addToast }) => {
           subtitle="Have a project, an opportunity, or just want to say hello? My inbox is always open."
         />
 
-        <div className="grid gap-10 lg:grid-cols-5">
+        <div className="grid gap-8 lg:gap-10 lg:grid-cols-5">
           {/* Enhanced Info */}
-          <Reveal className="lg:col-span-2">
-            <motion.div 
-              className="glass h-full space-y-8 p-8 border border-line/50"
+          <Reveal className="lg:col-span-2 order-first lg:order-last">
+            <motion.div
+              className="glass h-full space-y-6 sm:space-y-8 p-6 sm:p-8 border border-line/50"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -243,15 +243,15 @@ const Contact = ({ addToast }) => {
 
           {/* Enhanced Form */}
           <Reveal delay={0.15} className="lg:col-span-3">
-            <motion.form 
-              onSubmit={handleSubmit} 
-              className="glass space-y-6 p-8 border border-line/50"
+            <motion.form
+              onSubmit={handleSubmit}
+              className="glass space-y-4 sm:space-y-6 p-6 sm:p-8 border border-line/50"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
                 <div>
                   <label
                     htmlFor="fullName"

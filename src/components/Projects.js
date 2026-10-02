@@ -1012,7 +1012,8 @@ const Projects = () => {
                             }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            <FaExternalLinkAlt className="text-xs sm:text-sm" /> Live Demo
+                            <FaExternalLinkAlt className="text-xs sm:text-sm" />{" "}
+                            Live Demo
                           </motion.a>
                         )}
                       </div>
